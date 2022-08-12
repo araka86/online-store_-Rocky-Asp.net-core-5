@@ -1,0 +1,148 @@
+﻿@model Rocky_Model.Viewmodels.ProdoctVM
+@using Rocky_Utility
+@{
+    var title = "Create Product";
+}
+<form method="post" enctype="multipart/form-data">
+    @if (Model.Product.Id != 0)
+    {
+        title = "Edit Prodict";
+        <input asp-for="Product.Id" hidden />
+    }
+    <div class="border p-3 bg-white">
+        <div class=form-group p-3>
+            <h2 class="text-info pl-3">@title</h2>
+        </div>
+        <div class="row">
+            <div class="col-md-8">
+                @*---------> Name <---------*@
+                <div class="form-group row py-2">
+                    <div class="col-md-4">
+                        <label asp-for="Product.Name"></label>
+                    </div>
+                    <div class="col-md-8">
+                        <input asp-for="Product.Name" class="form-control" />
+                        <span asp-validation-for="Product.Name" class="text-danger"></span> @*строка валидации*@
+                    </div>
+                </div>
+
+                @*---------> CategoryId (DropDouwn) <---------*@
+                <div class="form-group row py-2">
+                    <div class="col-md-4">
+                        <label asp-for="Product.CategoryId"></label>
+                    </div>
+                    <div class="col-md-8">
+                        <select asp-for="Product.CategoryId" asp-items="@Model.CategorySelectList" class="form-select">
+                            <option disabled selected>--Select Category--</option>
+                        </select>
+                        <span asp-validation-for="Product.CategoryId" class="text-danger"></span>
+                    </div>
+                </div>
+                @*---------> AplicationTypeId (DropDouwn) <---------*@
+                <div class="form-group row py-2">
+                    <div class="col-md-4">
+                        <label asp-for="Product.AplicationTypeId"></label>
+                    </div>
+                    <div class="col-md-8">
+                        <select asp-for="Product.AplicationTypeId" asp-items="@Model.AplicationTypeSelectList" class="form-select">
+                            <option disabled selected>--Select AplicationType--</option>
+                        </select>
+                        <span asp-validation-for="Product.AplicationTypeId" class="text-danger"></span>
+                    </div>
+                </div>
+                @*---------> Description <---------*@
+                <div class="form-group row py-2">
+                    <div class="col-md-4">
+                        <label asp-for="Product.Description"></label>
+                    </div>
+                    <div class="col-md-8">
+                        <textarea asp-for="Product.Description" class="form-control summernote"></textarea>
+                        <span asp-validation-for="Product.Description" class="text-danger"></span>
+                    </div>
+                </div>
+                @*---------> Image <---------*@
+                <div class="form-group row py-2">
+                    <div class="col-md-4">
+                        Image
+                    </div>
+                    <div class="col-md-8">
+                        <input type="file" name="files" id="uploadBox" multiple class="form-control" />
+
+                    </div>
+                </div>
+                @*---------> Price <---------*@
+                <div class="form-group row py-2">
+                    <div class="col-md-4">
+                        <label asp-for="Product.Price"></label>
+                    </div>
+                    <div class="col-md-8">
+                        <input asp-for="Product.Price" class="form-control" />
+                        <span asp-validation-for="Product.Price" class="text-danger"></span>
+                    </div>
+                </div>
+                @*---------> ShortDec <---------*@
+                <div class="form-group row py-2">
+                    <div class="col-md-4">
+                        <label asp-for="Product.shortDesc"></label>
+                    </div>
+                    <div class="col-md-8">
+                        <input asp-for="Product.shortDesc" class="form-control" />
+                        <span asp-validation-for="Product.shortDesc" class="text-danger"></span> @*строка валидации*@
+                    </div>
+                </div>
+                @*---------> Button <---------*@
+                <div class="form-group row py-2">
+                    <div class="col-md-8 offset-4 row">
+                        <div class="col">
+                            @if (Model.Product.Id != 0)
+                            {
+                //update
+                                <input type="submit" class="btn btn-info w-100 " value="Update" />
+                            }
+                            else
+                            {
+                                <input type="submit" onclick="return validateInput()" class="btn btn-primary w-100 " value="Create" />
+                            }
+                        </div>
+                        <div class="col">
+                            <a asp-controller="Product" asp-action="Index" class="btn btn-success  w-100">
+                                <i class="fa-solid fa-rotate-left"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @if (Model.Product.Id != 0)
+            {
+                <div class="col-md-4 ">
+                    <img src="@WebConstanta.ImagePath@Model.Product.Image" class="w-100" style="border-radius:15px; border:1px solid #bbb; " />
+                    @*Keep this empty*@
+                </div>
+            }
+        </div>
+    </div>
+</form>
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+    <script>
+        $(document).ready(function() {
+            $('.summernote').summernote({
+                height: 250
+            });
+        });
+        function validateInput() {
+            if (document.getElementById("uploadBox").value == "") {
+                Swal.fire(
+                    'Error',
+                    'Pleace upload an inmage!!',
+                    'error')
+                return false;
+            }
+            return true;
+        }
+    </script>
+}
+
+

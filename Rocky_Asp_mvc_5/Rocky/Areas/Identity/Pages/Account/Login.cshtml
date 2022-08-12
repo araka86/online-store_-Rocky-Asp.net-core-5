@@ -1,0 +1,70 @@
+﻿@page
+@model LoginModel
+<div id="logreg-forms">
+    <h1 class="h3 mb-3 font-weight-normal text-info pt-4" style="text-align:center;">Sing in</h1>
+    @if ((Model.ExternalLogins?.Count ?? 0) == 0)
+    {
+        <div>
+            <p>
+                Не настроено ни одного сервиса внешней аутентификации. Посените <a href="https://go.microsoft.com/fwlink/?LinkID=532715">эту страницу</a>
+                ,чтобы узнать о настройке входа через внешние сервисы для этого приложения ASP.NET.
+            </p>
+        </div>
+    }
+    else
+    {
+        <form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="form-horizontal">
+            <div>
+                @foreach (var provider in Model.ExternalLogins)
+                {
+                    @if (provider.Name.ToLower().Contains("facebook"))
+                    {
+                        <button type="submit"
+                    class="btn btn-block  facebook-btn form-control btn-primary"
+                    name="provider"
+                    value="@provider.Name"
+                    title="Войти с использованием Вашего @provider.DisplayName аккаунта">
+                            <i class="fab fa-facebook-square"></i>
+
+                            @provider.DisplayName
+                        </button>
+                    }
+                    else
+                    {
+                        <button type="submit"
+                    class="btn btn-primary"
+                    name="provider" value="@provider.Name"
+                    title="Войти с использованием Вашего @provider.DisplayName аккаунта">
+                            @provider.DisplayName
+                        </button>
+                    }
+                }
+            </div>
+        </form>
+    }
+
+    <form id="account" method="post">
+        @if (Model.ExternalLogins?.Count > 0)
+        {
+            <p style="text-align:center">OR</p>
+        }
+
+        <input asp-for="Input.Email" placeholder="Почта..." type="email" class="mb-1 form-control" />
+        <input asp-for="Input.Password" placeholder="Пароль..." type="password" class="form-control" />
+        <button type="submit" class="btn btn-success btn-block"><i class="fas fa-sign-out"></i>Войти</button>
+        <div class="row">
+        <div class="col-6">
+            <a id="forgot-password" asp-page="./ForgotPassword" class="pb-2 text-info">Забыли пароль?</a>
+            <div asp-validation-summary="All" class="text-danger"></div>
+        </div>
+        <div class="col-6">
+            <label asp-for="Input.RememberMe"></label>
+            <input asp-for="Input.RememberMe" />
+        </div>
+        </div>
+        <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl" class="btn btn-info text-white">Зарегистрироваться как новый пользователь</a>
+    </form>
+</div>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

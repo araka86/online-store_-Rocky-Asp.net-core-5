@@ -1,0 +1,26 @@
+table.delivery {width: 100%; border: 0px; border-collapse: collapse;}
+table.delivery thead {font-weight: bold;}
+table.delivery td {
+padding: 0.6rem 1rem;
+ border-bottom: 1px solid #e8e9eb;
+width: auto;
+}
+@media screen and (max-width: 800px) {
+  table.delivery thead {
+    display: none;
+  }
+  table.delivery tr {
+    display: block;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #e8e9eb;
+  }
+  table.delivery td {
+    display: block;
+    text-align: right;
+  }
+  table.delivery td:before {
+    content: attr(aria-label);
+    float: left;
+    font-weight: bold;
+  }
+}
