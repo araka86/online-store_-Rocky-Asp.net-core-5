@@ -23,6 +23,11 @@ ________________________________________________________________________________
 _________________________________________________________________________________________________________________________________________________________________________
 8)Syncfusion - A beautiful table for big data with filtering and pagination (Syncfusion.EJ2.AspNet.Core 20.2.0.36)
 ![image](https://user-images.githubusercontent.com/70452790/197124961-9abd1134-5ef6-47d2-aed9-f5e99e1aac15.png)
+_________________________________________________________________________________________________________________________________________________________________________
+9) https://datatables.net/  - DataTables is a plug-in for the jQuery Javascript library. It is a highly flexible tool, built upon the foundations of progressive enhancement, that adds all of these advanced features to any HTML table.'
+
+![image](https://user-images.githubusercontent.com/70452790/197134414-3f749504-5fa2-4e66-88b4-322fd468e501.png)
+
 
 
 
