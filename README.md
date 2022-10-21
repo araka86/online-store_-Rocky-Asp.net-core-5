@@ -1,6 +1,6 @@
 # online-store_-Rocky-Asp.net-core-5
-1) mail jet - mail sender(gateway)
-2) Braintree - payment system
+1) mail jet - mail sender(gateway)(nuget - Mailjet.Api 1.2.2)
+2) Braintree - payment system (nuget - Braintree 4.17.0)
 _________________________________________________________________________________________________________________________________________________________________________
 4) Summernote - text redactor
 
@@ -20,5 +20,9 @@ ________________________________________________________________________________
 
 7) Toastr -  text notification. when your add, update or delete item.
 ![image](https://user-images.githubusercontent.com/70452790/197122400-0486f59a-f420-4551-9dfa-f40c7bc29778.png)
+_________________________________________________________________________________________________________________________________________________________________________
+8)Syncfusion - The beautiful table for big data (Syncfusion.EJ2.AspNet.Core 20.2.0.36)
+![image](https://user-images.githubusercontent.com/70452790/197124961-9abd1134-5ef6-47d2-aed9-f5e99e1aac15.png)
+
 
 
