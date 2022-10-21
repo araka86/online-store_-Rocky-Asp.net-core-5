@@ -5,7 +5,7 @@ ________________________________________________________________________________
 ![image](https://user-images.githubusercontent.com/70452790/197140068-f11fbda4-f4fc-4d11-8571-adc4997618f5.png)
 
 _______________________________________________________________________________________________________________________________________________________________________
-4) Summernote - text redactor
+4) Summernote - text editor for description field
 
 
 ![image](https://user-images.githubusercontent.com/70452790/197119084-15a466e1-9d98-44e6-8c33-b3bafc45c8af.png)
