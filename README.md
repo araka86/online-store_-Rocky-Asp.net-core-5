@@ -27,6 +27,13 @@ ________________________________________________________________________________
 9) https://datatables.net/  - DataTables is a plug-in for the jQuery Javascript library. It is a highly flexible tool, built upon the foundations of progressive enhancement, that adds all of these advanced features to any HTML table.'
 
 ![image](https://user-images.githubusercontent.com/70452790/197134414-3f749504-5fa2-4e66-88b4-322fd468e501.png)
+_______________________________________________________________________________________________________________________________________________________________________
+10) Font Awesome is the Internet's icon library and toolkit, used by millions of designers, developers, and content creators.
+
+![image](https://user-images.githubusercontent.com/70452790/197139613-f2437096-d2d7-40d8-9649-33c4840c620e.png)
+![image](https://user-images.githubusercontent.com/70452790/197139785-6dd524f3-ea6b-4754-bdb3-21977ae953f9.png)
+
+
 
 
 
